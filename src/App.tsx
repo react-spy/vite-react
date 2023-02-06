@@ -1,4 +1,10 @@
+import RouteSetting from "./RouteSetting";
+
 function App() {
-  return <div>首页</div>;
+  return (
+    <div>
+      <RouteSetting />
+    </div>
+  );
 }
 export default App;
