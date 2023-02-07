@@ -6,7 +6,7 @@ import { createViteServer } from "./config/vite/server";
 // https://vitejs.dev/config/
 export default (configEnv: ConfigEnv): UserConfig => {
   return {
-    base: "/myapp",
+    // base: "/myapp",
     plugins: [react()],
     // 解析配置
     resolve: createViteResolve(__dirname),

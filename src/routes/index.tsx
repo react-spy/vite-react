@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import type { RouteObject } from "react-router-dom";
 import { createBrowserRouter } from "react-router-dom";
+import Home from "@/views/Home";
 
 export const errorPage = [
   {
@@ -12,7 +13,7 @@ export const errorPage = [
 export const baseRouter: RouteObject[] = [
   {
     path: "/",
-    element: <div>首页</div>,
+    element: <Home />,
   },
 ];
 
