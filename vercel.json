@@ -5,13 +5,7 @@
   "outputDirectory": "dist",
   "version": 2,
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html",
-      "headers": {
-        "cache-control": "s-maxage=1, stale-while-revalidate"
-      }
-    },
+    { "src": "/.*", "dest": "https://vite-react.365-study.top" },
     {
       "src": "/api/(.*)",
       "dest": "http://139.224.54.218:3000/$1"
