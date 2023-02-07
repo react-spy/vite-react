@@ -1,6 +1,10 @@
-export default [
+export const baseRouters = [
   {
     path: "/",
-    component: "./Home",
+    element: "./views/Home/index.tsx",
+  },
+  {
+    path: "/user/login",
+    element: "./views/Login/index.tsx",
   },
 ];

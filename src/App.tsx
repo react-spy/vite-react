@@ -1,9 +1,9 @@
-import RouteSetting from "./RouteSetting";
+import RouteConfig from "./RouteConfig";
 
 function App() {
   return (
     <div>
-      <RouteSetting />
+      <RouteConfig />
     </div>
   );
 }

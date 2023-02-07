@@ -2,24 +2,25 @@
  * 首页
  */
 import { useSnapshot, proxy } from "valtio";
-import routes from "../../../config/routes";
 
-const state = proxy({
-  routes,
-});
+// const state = proxy({
+//   routes: __APP_URL__,
+// });
 
 const Home = () => {
-  const snap = useSnapshot(state);
+  //   const snap = useSnapshot(state);
+
   return (
     <div>
-      {snap.routes.map((i) => i.component)}
+      333侧333耳
+      {/* {snap.routes.map((i) => i.component)}
       <button
         onClick={() => {
           state.routes = [{ path: "/home", component: "/Home2" }];
         }}
       >
         点击
-      </button>
+      </button> */}
     </div>
   );
 };
