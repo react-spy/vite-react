@@ -5,10 +5,18 @@
   "outputDirectory": "dist",
   "version": 2,
   "routes": [
-    { "src": "/.*", "dest": "https://vite-react.365-study.top" },
     {
       "src": "/api/(.*)",
       "dest": "http://139.224.54.218:3000/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1",
+      "continue": true
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
     }
   ]
 }
