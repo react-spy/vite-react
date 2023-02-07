@@ -2,7 +2,7 @@
  * 路由相关
  */
 import { lazy, Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
 const modules = import.meta.glob("./views/*/*.tsx");
 const initRouters = [...(__APP_ROUTERS__ || [])].reduce((prev, curr) => {
@@ -26,6 +26,6 @@ const initRouters = [...(__APP_ROUTERS__ || [])].reduce((prev, curr) => {
 }, []);
 
 const RouteSetting = () => {
-  return <RouterProvider router={createBrowserRouter(initRouters)} />;
+  return <RouterProvider router={createHashRouter(initRouters)} />;
 };
 export default RouteSetting;
