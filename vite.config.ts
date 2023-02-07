@@ -1,19 +1,16 @@
-import { defineConfig } from "vite";
+import type { ConfigEnv, UserConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { createViteResolve } from "./config/resolve";
+import { createViteResolve } from "./config/vite/resolve";
+import { createViteServer } from "./config/vite/server";
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  // 解析配置
-  resolve: createViteResolve(__dirname),
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://139.224.54.218:3000",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
-      },
-    },
-  },
-});
+export default (configEnv: ConfigEnv): UserConfig => {
+  return {
+    base: "/myapp",
+    plugins: [react()],
+    // 解析配置
+    resolve: createViteResolve(__dirname),
+    // 配置服务器
+    server: createViteServer(),
+  };
+};

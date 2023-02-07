@@ -1,12 +1,12 @@
 {
   "name": "vite-react",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "tsc && vite build",
+    "dev": "cross-env BUILD_ENV=dev vite",
+    "start": "cross-env BUILD_ENV=dev vite",
+    "build": "cross-env BUILD_ENV=prod tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -18,9 +18,11 @@
     "react-router-dom": "^6.8.0"
   },
   "devDependencies": {
+    "@types/node": "^18.11.19",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
+    "cross-env": "^7.0.3",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
   }
