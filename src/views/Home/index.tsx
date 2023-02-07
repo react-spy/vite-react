@@ -1,18 +1,21 @@
 /**
  * 首页
  */
-import { useSnapshot } from "valtio";
+import { useSnapshot, proxy } from "valtio";
 import routes from "../../../config/routes";
 
+const state = proxy({
+  routes,
+});
+
 const Home = () => {
-  const snap = useSnapshot(routes);
-  console.log("snap", snap.routes);
+  const snap = useSnapshot(state);
   return (
     <div>
       {snap.routes.map((i) => i.component)}
       <button
         onClick={() => {
-          routes.routes = [{ path: "/home", component: "/Home2" }];
+          state.routes = [{ path: "/home", component: "/Home2" }];
         }}
       >
         点击
