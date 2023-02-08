@@ -15,3 +15,8 @@ export const appUrl: Record<string, string> = {
  * @description 项目部署在非根目录时使用，比如：https://www.xxx.com/app
  */
 export const appPrefix: string = ""; // 上述可配置：/app/
+
+/**
+ * 网站token
+ */
+export const appTokenName: string = "APP_TOKEN";
