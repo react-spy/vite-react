@@ -2,6 +2,8 @@
  * 首页
  */
 import { useSnapshot, proxy } from "valtio";
+import { getPageQuery } from "@/utils/common";
+import { openNewWindow } from "@/utils/windowUtils";
 
 // const state = proxy({
 //   routes: __APP_URL__,
@@ -9,18 +11,17 @@ import { useSnapshot, proxy } from "valtio";
 
 const Home = () => {
   //   const snap = useSnapshot(state);
-
+  const { id, name } = getPageQuery();
+  console.log(id, name);
   return (
     <div>
-      333侧333耳
-      {/* {snap.routes.map((i) => i.component)}
       <button
         onClick={() => {
-          state.routes = [{ path: "/home", component: "/Home2" }];
+          openNewWindow({ url: "https://www.baidu.com" });
         }}
       >
         点击
-      </button> */}
+      </button>
     </div>
   );
 };

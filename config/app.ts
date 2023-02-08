@@ -14,4 +14,4 @@ export const appUrl: Record<string, string> = {
  * 网站前缀
  * @description 项目部署在非根目录时使用，比如：https://www.xxx.com/app
  */
-export const appPrefix: string = "/"; // 上述可配置：/app
+export const appPrefix: string = ""; // 上述可配置：/app/
