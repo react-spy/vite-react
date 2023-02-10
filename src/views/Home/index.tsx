@@ -2,9 +2,12 @@
  * 首页
  */
 import { useSnapshot, proxy } from "valtio";
-import { getPageQuery } from "@/utils/common";
 import { openNewWindow } from "@/utils/windowUtils";
 import request from "@/utils/request";
+// import "./index.less";
+import classss from "./index.module.less";
+import { name } from "../../../package.json";
+console.log("name", name);
 
 // const state = proxy({
 //   routes: __APP_URL__,
@@ -12,10 +15,9 @@ import request from "@/utils/request";
 
 const Home = () => {
   //   const snap = useSnapshot(state);
-  const { id, name } = getPageQuery();
-  console.log(id, name);
   return (
-    <div>
+    <div className={classss.container}>
+      3333
       <button
         onClick={() => {
           openNewWindow({ url: "https://www.baidu.com" });
