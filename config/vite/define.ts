@@ -1,6 +1,5 @@
 import dayjs from "dayjs";
-import { appUrl, appPrefix, appTokenName } from "../app";
-import { baseRouters } from "../routes";
+import { appUrl, appPrefix, appTokenName, appRedirectUrl } from "../app";
 
 const getJsonString = (value: any) => JSON.stringify(value);
 
@@ -17,8 +16,8 @@ export function createViteDefine(): Record<string, any> {
     // 网站相关
     __APP_URL__: getJsonString(appUrl[BUILD_ENV]),
     __APP_PREFIX__: getJsonString(appPrefix),
-    __APP_ROUTERS__: getJsonString(baseRouters),
     __APP_TOKEN_NAME__: getJsonString(appTokenName),
+    __APP_REDIRECT_URL__: getJsonString(appRedirectUrl),
 
     // 构建相关
     __BUILD_ENV__: getJsonString(BUILD_ENV),

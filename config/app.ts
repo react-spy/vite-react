@@ -20,3 +20,8 @@ export const appPrefix: string = ""; // 上述可配置：/app/
  * 网站token
  */
 export const appTokenName: string = "APP_TOKEN";
+
+/**
+ * 网站重定向地址
+ */
+export const appRedirectUrl: string = "/home";
