@@ -16,6 +16,7 @@ const initRouters = [...(__APP_ROUTERS__ || [])].reduce((prev, curr) => {
       {
         ...curr,
         element: (
+          // 这里可以更换自定义加载loading
           <Suspense fallback={<p>loading</p>}>
             <Component />
           </Suspense>
