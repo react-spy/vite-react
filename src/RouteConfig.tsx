@@ -5,26 +5,35 @@ import { lazy, Suspense } from "react";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
 const modules = import.meta.glob("./views/*/*.tsx");
-const initRouters = [...(__APP_ROUTERS__ || [])].reduce((prev, curr) => {
-  let Component;
-  if (curr?.element && typeof modules[curr.element]) {
-    Component = lazy(modules[curr.element] as any);
-  }
-  if (Component) {
-    return [
-      ...prev,
-      {
-        ...curr,
-        element: (
-          // 这里可以更换自定义加载loading
-          <Suspense fallback={<p>loading</p>}>
-            <Component />
-          </Suspense>
-        ),
-      },
-    ];
-  }
-}, []);
+
+const createRoutes = (routes = __APP_ROUTERS__ || []) => {
+  return routes.reduce((prev, curr) => {
+    const { element, routes: childRoutes, ...rest } = curr;
+
+    if (Array.isArray(childRoutes) && childRoutes.length) {
+      return createRoutes(childRoutes);
+    }
+
+    let Component;
+    if (element && modules[element]) {
+      Component = lazy(modules[element] as any);
+      return [
+        ...prev,
+        {
+          ...rest,
+          element: (
+            <Suspense fallback={<p>loading</p>}>
+              <Component />
+            </Suspense>
+          ),
+        },
+      ];
+    } 
+    return prev;
+  }, []);
+};
+
+const initRouters = createRoutes([...(__APP_ROUTERS__ || [])]);
 
 const RouteSetting = () => {
   return <RouterProvider router={createHashRouter(initRouters)} />;
