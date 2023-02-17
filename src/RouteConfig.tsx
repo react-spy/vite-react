@@ -8,9 +8,9 @@ import { baseRouters } from "@/router";
 
 const modules = import.meta.glob("./views/*/*.tsx");
 
-const createRoutes: any = (routes = baseRouters, parentPath = "/") => {
+const createRoutes: any = (routes = baseRouters, parentPath = "") => {
   return routes.reduce((prev, curr: any) => {
-    const { elementPath, children, path, ...rest } = curr;
+    const { id, children, path, ...rest } = curr;
 
     // 递归处理子路由
     if (Array.isArray(children) && children.length) {
@@ -18,13 +18,13 @@ const createRoutes: any = (routes = baseRouters, parentPath = "/") => {
     }
 
     let Component;
-    if (elementPath && modules[elementPath]) {
-      Component = lazy(modules[elementPath] as any);
+    if (id && modules[id]) {
+      Component = lazy(modules[id] as any);
       return [
         ...prev,
         {
           ...rest,
-          path: `${parentPath}/${path}`,
+          path: `${parentPath}${path}`,
           element: (
             <Suspense fallback={<p>loading</p>}>
               <Component />
